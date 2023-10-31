@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.115.4">
-    <title>Project - Yen-Ku, Liu</title>
+    <title>Mistral AI - Yen-Ku, Liu</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/pricing/">
 
@@ -169,12 +169,12 @@
       
         </div>
         <!-- <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="me-2" viewBox="0 0 118 94" role="img"><title>Bootstrap</title><path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z" fill="currentColor"></path></svg> -->
-        <span class="fs-4">Project</span>
+        <span class="fs-4">Mistral AI</span>
       </a>
 
       <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
         <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="index.html">Home</a>
-        <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">Project</a>
+        <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="project.html">Project</a>
         <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="experience.html">Experience</a>
         <a class="py-2 link-body-emphasis text-decoration-none" href="contact.html">Contact</a>
       </nav>
@@ -185,91 +185,196 @@
     </div>
   </header>
 
-<!--Mistral AI-->
-<div id="Mistral AI">
-  <div class="container">
-    <div class="flex-container">
-        <div class="text-container">
-            <h6>Oct 30, 2023</h6>
-            <h1>Mistral AI</h1>
-            <p>Mistral AI is an AI conversation and questioning tool based on Mistralai. Its functionality is similar to ChatGPT, and its version is: Mistral-7B-Instruct-v0.1.</p>
-            <p>This project is based on a simple Javascript function assignment from Introduction to the Internet course.</p>
-            <a href="mistralai.html" title="Website">Visit Project</a>
-  
-        </div>
-        <div class="image-container">
-            <img src="htmatplotlib.png" alt="圆角图片" class="rounded-image">
-        </div>
+
+
+
+
+<!--Mistral-->
+<style>
+  .Mistral {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontal center alignment */
+    justify-content: center; /* Vertical center alignment */
+    height: 800px; /* Or any other value */
+  }
+
+</style>
+<div class="Mistral">
+    <div class="text-container">
+      <!-- <h6>Javascript Product</h6> -->
+      <h1>Mistral AI</h1>
+      <p>Mistral AI helps you answer questions you would like to know.</p>
+      <!-- <h9>Javascript Product for Introduction to the Internet</h9> -->
+      <!-- <a href="https://knyliu.github.io/htmatplotlib/index.html" target="_blank" title="Website">Visit Website</a> -->
     </div>
-  </div>
-  </div>
+    <div id="chat-container"></div>
+
+    <br>
+      
+    <input id="user-input" type="text">
+
+    <br>
+          
+    <button onclick="sendMessage()">Send</button>
+
+          <script>
+            async function query(data) {
+                try {
+                    async function query(userInput) {
+                        const data = {
+                            "model": "string",
+                            "messages": "string",
+                            "temperature": 0.7,
+                            "top_p": 1,
+                            "n": 1,
+                            "max_tokens": 8192,
+                            "stop": [
+                                "string"
+                            ],
+                            "stream": false,
+                            "presence_penalty": 0,
+                            "frequency_penalty": 0,
+                            "logit_bias": {
+                                "property1": 0,
+                                "property2": 0
+                            },
+                            "user": "string",
+                            "best_of": 0,
+                            "top_k": -1,
+                            "ignore_eos": false,
+                            "use_beam_search": false
+                        }
+                    };
+    
+                    const response = await fetch(
+                        "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.1", {
+                            headers: {
+                                Authorization: "Bearer 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",
+                                'Content-Type': 'application/json'
+                            },
+                            method: "POST",
+                            body: JSON.stringify(data),
+                        }
+                    );
+        
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+        
+                    const result = await response.json();
+                    return result;
+        
+                } catch (error) {
+                    console.error('There has been a problem with your fetch operation:', error);
+                    throw error; // rethrowing error to be handled in sendMessage function
+                }
+            }
+        
+            async function sendMessage() {
+                try {
+                    const userInput = document.getElementById('user-input').value;
+                    const chatContainer = document.getElementById('chat-container');
+        
+                    // Display user message
+                    chatContainer.innerHTML += `<div class="user-message">${userInput}</div>`;
+        
+                    // Display loading indicator
+                    chatContainer.innerHTML += `<div class="bot-message">Loading...</div>`;
+        
+                    // Get bot response
+                    const response = await query({ "inputs": userInput });
+                    const botMessage = response[0]['generated_text'];
+        
+                    // Update bot message
+                    const botMessages = chatContainer.getElementsByClassName('bot-message');
+                    botMessages[botMessages.length - 1].innerHTML = botMessage;
+        
+                    // Clear user input field
+                    document.getElementById('user-input').value = '';
+        
+                    // Scroll to the bottom of chat container
+                    chatContainer.scrollTop = chatContainer.scrollHeight;
+        
+                } catch (error) {
+                    console.error('Error sending message:', error);
+                }
+            }
+          </script>
+
+          <style>
+            #chat-container {
+                width: 80%;
+                height: 500px;
+                border: 0.5px solid rgb(77, 77, 77);
+                border-radius: 10px;
+                overflow-y: scroll;
+                
+                display: flex;
+                flex-direction: column;
+                align-items: center; /* Horizontal center alignment */
+                /*justify-content: center; /* Vertical center alignment */
+                
+            }
+
+            .user-message,
+            .bot-message {
+                width: 90%;
+                /* height: 58px; */
+                padding: 5px;
+                border-radius: 5px;
+                white-space: normal; /* 允許文本自動換行 */
+                overflow-wrap: break-word; /* 允許長單詞或連續字符斷開 */
+                word-break: break-word; /* 這是一個額外的屬性，用於確保在所有瀏覽器中都能正常斷詞 */
+            }
+
+            .user-message {
+                font-weight: bold;
+                margin-top: 30px;
+                background-color: #e9e9e900;
+                /* text-align: right; */
+                /* margin-left: 300px; */
+                padding-left: 10px;  /* 增加10px的內邊距 */
+                padding-right: 10px;  /* 增加10px的內邊距 */
+            }
+
+            .bot-message {
+                margin-top: 0px;
+                margin: 0px;
+                background-color: #e9e9e9;
+                padding-left: 10px;  /* 增加10px的內邊距 */
+                padding-right: 10px;  /* 增加10px的內邊距 */
+            }
+                
+            button {
+                height: 35px;
+                width: 250px;
+                font-size: 13px;
+                margin: 0px 0px 20px 0px;
+                background-color: rgb(87, 87, 87);
+                color: rgb(255, 255, 255);
+                border-radius: 50px;
+                transition: 0.2s;
+            }
+            button:hover {
+                background-color: rgb(211, 211, 211);
+                color: black;
+            }
+            #user-input {
+              background-color: #f5f5f5;
+              border: 1px solid #eeeeee;
+              color: #333;
+              font-family: Arial, sans-serif;
+              width: 80%;
+              height: 70px;
+              border-radius: 5px;
+              padding: 5px;
+            }
+          </style>
   <br>
-<hr style="border: 0.75px solid;"/>
-
-
-<!--HTMatplotLib-->
-<div id="HTMatplotLib">
-<div class="container">
-  <div class="flex-container">
-      <div class="text-container">
-          <h6>June 22, 2023</h6>
-          <h1>HTMatplotLib</h1>
-          <p>HTMatplotLib is a website based on Python and Matplotlib, allowing users to easily visualize input data without the need for any programming knowledge.</p>
-          <a href="https://knyliu.github.io/htmatplotlib/index.html" target="_blank" title="Website">Visit Website</a>
-
-      </div>
-      <div class="image-container">
-          <img src="htmatplotlib.png" alt="圆角图片" class="rounded-image">
-      </div>
-  </div>
 </div>
-</div>
-<br>
-<hr style="border: 0.75px solid;"/>
-
-<!--SUPERHEALTH-->
-<div id="SUPERHEALTH">
-<br>
-<div class="container">
-  <div class="flex-container">
-      <div class="text-container">
-          <h6>June 8, 2023</h6>
-          <h1>SUPERHEALTH</h1>
-          <p>This is a health management website that combines a database with AI capabilities. Users can access food calorie and nutritional information through an API-powered website, which also supports multiple languages. Additionally, it utilizes OpenAI services to generate exercise and dietary recommendations based on user input, such as height and weight. Finally, it offers a database for users to record their daily meal calorie intake and access historical data.</p>
-          <a href="https://knyliu.github.io/superhealth/index.html" target="_blank" title="Website">View Website</a>
-
-      </div>
-      <div class="image-container">
-          <img src="SUPERHEALTH.png" alt="圆角图片" class="rounded-image">
-      </div>
-  </div>
-</div>
-</div>
-<br>
-<hr style="border: 0.75px solid;"/>
-
-<!--Technological X'mas Tree-->
-<div id="X'mas">
-<br>
-<div class="container">
-  <div class="flex-container">
-      <div class="text-container">
-          <h6>Dec 22, 2022</h6>
-          <h1>Technological X'mas Tree</h1>
-          <p>This is a project that combines electronic circuits, mechatronics integration, software implementation, and the Internet of Things (IoT) to create a tech-savvy Christmas tree. It solves the problems of traditional Christmas trees being non-interactive decorations and staying lit when no one is around, addressing environmental concerns.</p>
-          <a href="https://drive.google.com/file/d/1LIkgwkmOmBPpXxNVKnxorJqskKmtSfaI/view?usp=share_link" target="_blank" title="Introduction">Visit Introduction</a>
-
-      </div>
-      <div class="image-container">
-          <img src="xmas_tree.png" alt="圆角图片" class="rounded-image">
-      </div>
-  </div>
-</div>
-</div>
-<br>
 
 
-<hr style="border: 0.75px solid;"/>
 <style>
   .container {
     max-width: 80%;
@@ -284,22 +389,31 @@
   }
 
   .text-container {
+      text-align: center;
       flex: 2;
-      padding: 20px;
-      margin-right: 150px
+      padding: 10px;
+      margin-right: 0px
   }
 
   .text-container h1 {
+      text-align: center;
       font-weight: bold;
   }
 
   .text-container h6 {
+    text-align: center;
     font-weight: bold;
     color: #4a4a4a; /* 更改文字颜色为色 */
   }
 
+  .text-container h9 {
+    text-align: center;
+    font-weight: bold;
+    color: #000dff; /* 更改文字颜色为色 */
+  }
+
   .text-container p {
-    margin-top: 20px; /* 增加上间距 */
+    text-align: center;
     margin-bottom: 20px; /* 增加下间距 */
     color: #4a4a4a; /* 更改文字颜色为色 */
   }
