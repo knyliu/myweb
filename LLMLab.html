@@ -1,0 +1,987 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.115.4">
+    <title>LLM Lab - Yen-Ku, Liu</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/pricing/">
+
+    
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="pricing.css" rel="stylesheet">
+  </head>
+  <body>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+    </style>
+
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+      </symbol>
+    </svg>
+
+
+
+    
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="check" viewBox="0 0 16 16">
+    <title>Check</title>
+    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+  </symbol>
+</svg>
+
+<div class="container py-3">
+  <header>
+    <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+      <a href="index.html" class="d-flex align-items-center link-body-emphasis text-decoration-none">
+      <style>
+        .link-body-emphasis {
+            height: 40px;
+        }
+      </style>
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+          <div id="self_picture_1">
+            <img src="ykliu.png" >      
+          </div>
+          <style>
+            #self_picture_1 {
+              width: 45px;
+              height: 45px;
+              overflow: hidden;
+              position: relative;
+              margin: 0 auto;
+              margin-top: 7px;
+              border-radius: 15px;
+        
+            }
+            
+            #self_picture_1 img {
+              width: 100%;
+              height: auto;
+              position: absolute;
+              transition: opacity 1s ease-in-out;
+              display: block;
+              margin: 0 auto;
+              border-radius:100%;
+        
+            }
+          </style>
+      
+        </div>
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="me-2" viewBox="0 0 118 94" role="img"><title>Bootstrap</title><path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z" fill="currentColor"></path></svg> -->
+        <span class="fs-4">LLM Lab</span>
+      </a>
+
+      <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+        <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="index.html">Home</a>
+        <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="project.html">Project</a>
+        <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="experience.html">Experience</a>
+        <a class="py-2 link-body-emphasis text-decoration-none" href="contact.html">Contact</a>
+      </nav>
+    </div>
+
+    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+
+    </div>
+    <style>
+      .tag {
+          display: inline-block;
+          padding: 2px 10px;
+          margin-right: 10px;
+          background-color: #f0f0f0;
+          border: 0.5px solid #ddd;
+          border-radius: 4px;
+          font-size: 11px;
+          color: #474747;
+          box-shadow: 1px 1px 2px rgba(0, 0, 0, 0);
+      }
+      .tag_team {
+          display: inline-block;
+          padding: 2px 10px;
+          margin-right: 10px;
+          background-color: #ffde68;
+          border: 0.5px solid #ffde68;
+          border-radius: 4px;
+          font-size: 11px;
+          color: #474747;
+          box-shadow: 1px 1px 2px rgba(0, 0, 0, 0);
+      }
+    </style>
+  </header>
+
+</style>
+<div class="Mistral">
+    <div class="text-container">
+      <!-- <h6>Javascript Product</h6> -->
+      <h1>LLM Lab</h1>
+      <br>
+      <p>LLM Lab is a student-organized lab, aimed at researching and learning about LLM related technologies, and is dedicated to developing our own LLM.</p>
+      <p>Currently, our lab is focused on developing a model that is most suitable for learning Python.</p>
+      <br>
+      <a href="https://github.com/Hsing-Tzu/LLMLab" target="_blank">
+        <img src="github.png" class="logo" width="30" height="30">
+      </a>
+      <br>
+      <br>
+      <div class="tag">#  LLM</div>
+      <div class="tag">#  LLM Training</div>
+      <div class="tag_team">#  Team Work</div>
+
+    </div>
+</div>
+
+<div style="display: flex; align-items: center; justify-content: center;">
+  <hr style="border: 0.75px solid; width: 80%;"/>
+</div>
+<br>
+
+
+
+
+<div class="Mistral">
+  <!-- <div class="text-container">
+    <h1>About Our Team</h1>
+  </div> -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" /> -->
+
+<div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-sm-8 col-lg-6">
+            <!-- Section Heading-->
+            <div class="section_heading text-center wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+              <h3>About Our<span> Team</span></h3>
+              <p>We're not Computer Science majors, but our enthusiasm for LLM drives us to explore its technologies.</p>
+              <br>
+              <div class="line"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- Single Advisor-->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+              <!-- Team Thumb-->
+              <div class="advisor_thumb"><img src="PNG影像 3.PNG" alt="" style="width: 100%;">
+                <!-- Social Info-->
+                <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
+              </div>
+              <!-- Team Details-->
+              <div class="single_advisor_details_info">
+                <h6>Daisy Ko</h6>
+                <p class="designation">Founder &amp; Developer</p>
+              </div>
+            </div>
+          </div>
+          <!-- Single Advisor-->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+              <!-- Team Thumb-->
+              <div class="advisor_thumb"><img src="PNG影像 1.PNG" alt="" style="width: 72.5%;">
+                <!-- Social Info-->
+                <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
+              </div>
+              <!-- Team Details-->
+              <div class="single_advisor_details_info">
+                <h6>Kenny Liu</h6>
+                <p class="designation">Developer</p>
+              </div>
+            </div>
+          </div>
+          <!-- Single Advisor-->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
+              <!-- Team Thumb-->
+              <div class="advisor_thumb"><img src="PNG影像 4.PNG" alt="" style="width: 100%;">
+                <!-- Social Info-->
+                <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
+              </div>
+              <!-- Team Details-->
+              <div class="single_advisor_details_info">
+                <h6>Jessica Lin</h6>
+                <p class="designation">Developer</p>
+              </div>
+            </div>
+          </div>
+          <!-- Single Advisor-->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+              <!-- Team Thumb-->
+              <div class="advisor_thumb"><img src="PNG影像 2.PNG" alt="" style="width: 100%;">
+                <!-- Social Info-->
+                <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
+              </div>
+              <!-- Team Details-->
+              <div class="single_advisor_details_info">
+                <h6>Mason Li</h6>
+                <p class="designation">Developer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <style>
+        /* body{
+          margin-top:20px;
+          background:#eee;
+        } */
+        .single_advisor_profile {
+            position: relative;
+            margin-bottom: 50px;
+            -webkit-transition-duration: 500ms;
+            transition-duration: 500ms;
+            z-index: 1;
+            border-radius: 15px;
+            -webkit-box-shadow: 0 0.25rem 1rem 0 rgba(47, 91, 234, 0.125);
+            box-shadow: 0 0.25rem 1rem 0 rgba(47, 91, 234, 0.125);
+        }
+        .single_advisor_profile .advisor_thumb {
+            position: relative;
+            z-index: 1;
+            border-radius: 15px 15px 0 0;
+            margin: 0 auto;
+            padding: 30px 30px 0 30px;
+            background-color: #3f43fd;
+            overflow: hidden;
+        }
+        .single_advisor_profile .advisor_thumb::after {
+            -webkit-transition-duration: 500ms;
+            transition-duration: 500ms;
+            position: absolute;
+            width: 150%;
+            height: 80px;
+            bottom: -45px;
+            left: -25%;
+            content: "";
+            background-color: #ffffff;
+            -webkit-transform: rotate(-15deg);
+            transform: rotate(-15deg);
+        }
+        @media only screen and (max-width: 575px) {
+            .single_advisor_profile .advisor_thumb::after {
+                height: 160px;
+                bottom: -90px;
+            }
+        }
+        .single_advisor_profile .advisor_thumb .social-info {
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            bottom: 0;
+            right: 30px;
+            text-align: right;
+        }
+        .single_advisor_profile .advisor_thumb .social-info a {
+            font-size: 14px;
+            color: #020710;
+            padding: 0 5px;
+        }
+        .single_advisor_profile .advisor_thumb .social-info a:hover,
+        .single_advisor_profile .advisor_thumb .social-info a:focus {
+            color: #3f43fd;
+        }
+        .single_advisor_profile .advisor_thumb .social-info a:last-child {
+            padding-right: 0;
+        }
+        .single_advisor_profile .single_advisor_details_info {
+            position: relative;
+            z-index: 1;
+            padding: 30px;
+            text-align: right;
+            -webkit-transition-duration: 500ms;
+            transition-duration: 500ms;
+            border-radius: 0 0 15px 15px;
+            background-color: #ffffff;
+        }
+        .single_advisor_profile .single_advisor_details_info::after {
+            -webkit-transition-duration: 500ms;
+            transition-duration: 500ms;
+            position: absolute;
+            z-index: 1;
+            width: 50px;
+            height: 3px;
+            background-color: #3f43fd;
+            content: "";
+            top: 12px;
+            right: 30px;
+        }
+        .single_advisor_profile .single_advisor_details_info h6 {
+            margin-bottom: 0.25rem;
+            -webkit-transition-duration: 500ms;
+            transition-duration: 500ms;
+        }
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+            .single_advisor_profile .single_advisor_details_info h6 {
+                font-size: 14px;
+            }
+        }
+        .single_advisor_profile .single_advisor_details_info p {
+            -webkit-transition-duration: 500ms;
+            transition-duration: 500ms;
+            margin-bottom: 0;
+            font-size: 14px;
+        }
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+            .single_advisor_profile .single_advisor_details_info p {
+                font-size: 12px;
+            }
+        }
+        .single_advisor_profile:hover .advisor_thumb::after,
+        .single_advisor_profile:focus .advisor_thumb::after {
+            background-color: #070a57;
+        }
+        .single_advisor_profile:hover .advisor_thumb .social-info a,
+        .single_advisor_profile:focus .advisor_thumb .social-info a {
+            color: #ffffff;
+        }
+        .single_advisor_profile:hover .advisor_thumb .social-info a:hover,
+        .single_advisor_profile:hover .advisor_thumb .social-info a:focus,
+        .single_advisor_profile:focus .advisor_thumb .social-info a:hover,
+        .single_advisor_profile:focus .advisor_thumb .social-info a:focus {
+            color: #ffffff;
+        }
+        .single_advisor_profile:hover .single_advisor_details_info,
+        .single_advisor_profile:focus .single_advisor_details_info {
+            background-color: #070a57;
+        }
+        .single_advisor_profile:hover .single_advisor_details_info::after,
+        .single_advisor_profile:focus .single_advisor_details_info::after {
+            background-color: #ffffff;
+        }
+        .single_advisor_profile:hover .single_advisor_details_info h6,
+        .single_advisor_profile:focus .single_advisor_details_info h6 {
+            color: #ffffff;
+        }
+        .single_advisor_profile:hover .single_advisor_details_info p,
+        .single_advisor_profile:focus .single_advisor_details_info p {
+            color: #ffffff;
+        }
+      </style>
+  <div id="HTMatplotLib">
+    <div class="container">
+      <div class="flex-container">
+          <!-- <div class="image-container">
+              <img src="LLM-us.png" class="rounded-image">
+          </div> -->
+      </div>
+    </div>
+    </div>
+  <br>
+  <!-- <div class="text-container">
+    <br>
+    <p>Whether it's Google Translate, ChatGPT, or even other translation tools,</p>
+    <p>none can translate proper nouns perfectly to meet the standard correct translation of the National Academy for Educational Research.</p>
+  </div>
+</div> -->
+
+
+<div style="display: flex; align-items: center; justify-content: center;">
+  <hr style="border: 0.75px solid; width: 80%;"/>
+</div>
+<br>
+
+
+
+
+<!-- <div class="Mistral">
+  <div class="text-container">
+    <h1>Interface</h1>
+  </div>
+  <br>
+</div> -->
+
+<div class="section_heading text-center wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+  <h3>Our Main Goal</h3>
+  <p>Our goal is to train a model that is most suitable for learning the Python programming language.</p>
+  <br>
+  <div class="line"></div>
+
+  <h3>Why do we want to develop a new model for learning Python?</h3>
+  <div class="text-container" style="width: 80%; margin-right: 10%; margin-left: 10%;">
+    <p>
+      While learning Python as students, we often asked ChatGPT questions about Python.<br>
+      However, we're encountering two issues: data sources and divergence.<br>
+      We can't be certain of the data's origins, and when we wish to delve deeper, we're unsure of where to begin. Regarding divergence, due to ChatGPT's extensive background knowledge, it tends to provide answers that go beyond our expectations, sometimes offering information that is irrelevant to our learning.<br>
+    </p>
+  </div>
+    <br>
+  <div class="line"></div>
+</div>
+
+<br>
+
+<div style="display: flex; align-items: center; justify-content: center;">
+  <hr style="border: 0.75px solid; width: 80%;"/>
+</div>
+<br>
+
+<div class="section_heading text-center wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+  <h3>Learning Process</h3>
+  <br>
+  <div class="circle-container">
+    <div class="circle">word2Vec</div>
+    <div class="circle">BERT</div>
+    <div class="circle">BERT<br>from Scratch</div>
+    <div class="circle">Fine-Tuning</div>
+    <div class="circle">RAG</div>
+  </div>
+  <style>
+    .circle-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      width: 80%;
+      margin-right: 10%;
+      margin-left: 10%;
+    }
+    .circle {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      background-color: rgb(90, 90, 90);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 20px;
+      position: relative;
+    }
+    .circle::after {
+      content: '';
+      position: absolute;
+      right: -40px;
+      top: 50%;
+      height: 2px;
+      width: 40px;
+      background-color: white;
+      transform: translateY(-50%);
+    }
+    .circle:last-child::after {
+      display: none;
+    }
+  </style>
+  <br>
+  <br>
+  <div style="display: flex; align-items: center; justify-content: center;">
+    <hr style="border: 0.75px solid; width: 80%;"/>
+  </div>
+  <br>
+</div>
+
+<div class="section_heading text-center wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+  <h3>What Can Our Model Do?</h3>
+  <p>
+    We hope to be "learner-centered", focusing on learning rather than just obtaining code.<br>
+    We have clear data sources, providing more reliable and credible information.<br>
+    The data sources are based on w3schools, and we provide page numbers of the sources, allowing learners to directly study the relevant content.<br>
+  </p>  <br>
+  <div class="line"></div>
+
+<div style="display: flex; align-items: center; justify-content: center;">
+  <hr style="border: 0.75px solid; width: 80%;"/>
+</div>
+<br>
+
+<div class="section_heading text-center wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+  <h3>RAG Flowchart</h3>
+  <br>
+  <div class="container">
+        <div class="image-container">
+            <img src="RAG.png" class="rounded-image" style="width: 80%;">
+        </div>
+  </div>
+</div>
+<br>
+<br>
+<div style="display: flex; align-items: center; justify-content: center;">
+  <hr style="border: 0.75px solid; width: 80%;"/>
+</div>
+<br>
+
+<!---->
+<div class="section_heading text-center wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+  <h3>Example</h3>
+  <br>
+</div>
+<div id="HTMatplotLib">
+  <div class="container">
+    <div class="text-container_1">
+      <br>
+      <h4>Matplotlib Usage and Data Processing</h4>
+    </div>
+    <div class="flex-container">
+      <div class="text-container_1">
+        <h6>1 / 2</h6>
+        <h1>Example 1</h1>
+        <p>My grandmother is an illiterate farmer, and I hope to let her know that her vegetable sales are increasing every year. In 2019, she sold 100 kg, in 2020 she sold 120 kg, in 2021 she sold 140 kg, in 2022 she sold 160 kg, and in 2023 she sold 200 kg. Can you give me the code to draw the chart which title name Vegetable Sales Over Time?</p>
+    </div>
+        <div class="image-container">
+            <img src="LLM-Demo-1.png" class="rounded-image">
+        </div>
+    </div>
+  </div>
+  </div>
+  <div class="text-container_1">
+    <br>
+    <br>
+    <p>The prompt does not clearly specify the programming language to be used or the type of charts.</p>
+    <br>
+  </div>
+  <br>
+  <hr style="border: 0.75px solid;"/>
+
+  
+
+<!---->
+<br>
+<div id="HTMatplotLib">
+  <div class="container">
+    <div class="text-container_1">
+      <br>
+      <h4>CSV File Processing and Function Usage</h4>
+    </div>
+    <div class="flex-container">
+      <div class="text-container_1">
+        <h6>2 / 2</h6>
+        <h1>Example 2</h1>
+        <p>I am a teaching assistant. I have a CSV file with the scores of all my classmates with the column name "Student ID" and "Score". Please give me the code can output the mean, standard deviation, median, and the highest and lowest scores.</p>
+    </div>
+        <div class="image-container">
+            <img src="LLM-Demo-1.png" class="rounded-image">
+        </div>
+    </div>
+  </div>
+  </div>
+  <div class="text-container_1">
+    <br>
+    <br>
+    <p>The prompt clearly specifies the statistical items to be analyzed but does not specify the programming language to be used.</p>
+    <br>
+  </div>
+  <br>
+  <hr style="border: 0.75px solid;"/>
+
+
+
+
+<style>
+  .base_container_about {
+  background-color: #F5F5F7; /* 灰色背景颜色 */
+  border-radius: 10px; /* 圆角半径 */
+  padding: 20px; /* 可选：添加内边距以增加容器内的间距 */
+  width: 70%; /* 宽度 */
+  margin: 0 auto; /* 使用 margin 属性水平居中容器 */
+  }
+</style>
+
+<style>
+  .text-container_about{
+  text-align : center;
+  }
+
+  .text-container_about h1 {
+      font-weight: bold;
+  }
+
+  .text-container_about h2 {
+  font-size: 30px;
+  font-weight: bold;
+  color: #333333; 
+  }
+
+  .text-contaicontainer_abouter h3 {
+  font-weight: bold;
+  color: #333333; 
+  }
+
+  .text-container_about h4 {
+  font-weight: bold;
+  color: #333333; 
+  }
+
+  .text-container_about h6 {
+  font-weight: bold;
+  color: #4a4a4a; 
+  }
+
+  .text-container_about h7 {
+  color: #4a4a4a; 
+  }
+
+  .text-container_about p {
+  margin-top: 0px; /* 增加上间距 */
+  margin-bottom: 4px; /* 增加下间距 */
+  color: #6d6d6d; 
+  font-size: 15px;
+  }
+</style>
+
+<br>
+<br>
+
+<div class="Mistral">
+  <div class="text-container">
+    <!-- <h6>Javascript Product</h6> -->
+    <br>
+    <h2>Reliable Data Sources</h2>
+    <br>
+    <p>This model's data is based on the complete Python tutorial content from w3schools, providing a reliable source of information for generating responses.</p>
+    <p>Users can also use the responses as a basis to learn more on w3schools.</p>     
+    <br>
+    <a href="https://www.w3schools.com" target="_blank">
+      <img src="W3Schools_logo.png" class="logo" width="60" height="auto">
+    </a> 
+  </div>
+  
+  <br>
+  <br>
+  <br>
+</div>
+
+
+<div class="Mistral">
+  <div class="text-container">
+    <!-- <h6>Javascript Product</h6> -->
+    <br>
+    <h2>Trusted Basic LLM</h2>
+    <br>
+    <p>The translation is powered by MistralAI, offering more accurate responses.</p>
+    <p>Therefore, you can fully trust the accuracy of the response.</p>     
+    
+    <a href="https://mistral.ai" target="_blank">
+      <img src="mistralai_logo.png" class="logo" width="250" height="auto">
+    </a>  
+  </div>
+  <br>
+  <br>
+  <br>
+</div>
+
+<div style="display: flex; align-items: center; justify-content: center;">
+  <hr style="border: 0.75px solid; width: 80%;"/>
+</div>
+<br>
+
+ 
+
+
+<div class="Mistral">
+    <div class="text-container">
+      <!-- <h6>Javascript Product</h6> -->
+      <br>
+      <h2>GROUP WORK</h2>
+      <br>
+      <p>This is a project developed jointly by a team.</p>
+      <br>
+      <p>Copyright © 2024 LLM Lab</p>      
+    </div>
+    <br>
+    <br>
+    <br>
+</div>
+
+<style>
+  .container {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  .flex-container {
+      width: 90%;
+      margin-right: 5%;
+      margin-left: 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+
+  .text-container {
+      text-align: center;
+      flex: 2;
+      padding: 10px;
+      margin-right: 0px
+  }
+
+  .text-container h1 {
+      text-align: center;
+      font-weight: bold;
+  }
+
+  .text-container h6 {
+    text-align: center;
+    font-weight: bold;
+    color: #4a4a4a; /* 更改文字颜色为色 */
+  }
+
+  .text-container h9 {
+    text-align: center;
+    font-weight: bold;
+    color: #000dff; /* 更改文字颜色为色 */
+  }
+
+  .text-container p {
+    text-align: center;
+    margin-bottom: 0px; /* 增加下间距 */
+    color: #4a4a4a; /* 更改文字颜色为色 */
+  }
+
+  .image-container {
+      flex: 4;
+      text-align: center;
+  }
+
+  .rounded-image {
+      border-radius: 10%;
+      max-width: 100%;
+      height: auto;
+  }
+  
+</style>
+
+
+<style>
+  .container_1 {
+    max-width: 60%;
+    margin: 0 auto;
+  }
+
+  .flex-container_1 {
+      width: 90%; /* 调整flex-container的宽度 */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+
+  .text-container_1 {
+      flex: 2;
+      padding: 0px;
+      margin-left: 20px;
+      margin-right: 40px;
+  }
+  .text-container_2 {
+      flex: 2;
+      padding: 0px;
+  }
+
+  .text-container_1 h1 {
+      font-size: 30px;
+      font-weight: bold;
+      line-height: 1.1;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      color: #222222; /* 更改文字颜色为色 */
+  }
+
+  .text-container_1 h4{
+    font-size: 20px;
+    font-weight: bold;
+    color: #444343; /* 更改文字颜色为色 */
+  }
+
+  .text-container_1 h6 {
+    font-weight: bold;
+    color: #4a4a4a; /* 更改文字颜色为色 */
+  }
+
+  .text-container_1 h9 {
+    font-weight: bold;
+    color: #000dff; /* 更改文字颜色为色 */
+  }
+
+  .text-container_1 p {
+    margin-top: 0px; /* 增加上间距 */
+    margin-bottom: 0px; /* 增加下间距 */
+    color: #4a4a4a; /* 更改文字颜色为色 */
+  }
+
+  .text-container_2 h1 {
+      font-size: 30px;
+      font-weight: bold;
+      line-height: 1.1;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      color: #222222; /* 更改文字颜色为色 */
+  }
+
+  .text-container_2 h4{
+    font-size: 20px;
+    font-weight: bold;
+    color: #444343; /* 更改文字颜色为色 */
+  }
+
+  .text-container_2 h6 {
+    font-weight: bold;
+    color: #4a4a4a; /* 更改文字颜色为色 */
+  }
+
+  .text-container_2 h9 {
+    font-weight: bold;
+    color: #000dff; /* 更改文字颜色为色 */
+  }
+
+  .text-container_2 p {
+    margin-top: 0px; /* 增加上间距 */
+    margin-bottom: 0px; /* 增加下间距 */
+    color: #4a4a4a; /* 更改文字颜色为色 */
+  }
+
+  .image-container_1 {
+      flex: 2;
+      text-align: center;
+      padding: 60px;
+  }
+
+  .rounded-image-container_1 {
+    border-radius: 15px;
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 0 15px rgba(0.5, 0.5, 0.5, 0.5);
+}
+
+  
+</style>
+
+
+    
+
+    
+
+
+
+<footer class="pt-4 my-md-5 pt-md-5 border-top">
+  <div class="row">
+    <div class="col-12 col-md">
+      <!--<img class="mb-2" src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Bootstrap_logo.svg" alt="" width="24" height="19">-->
+      <small class="d-block mb-3 text-body-secondary">Copyright © 2024 YEN-KU, LIU. All rights reserved.</small>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Home</h5>
+      <ul class="list-unstyled text-small">
+        <li class="mb-1"><a class="link-secondary text-decoration-none" href="https://en.ntnu.edu.tw" target="_blank">NTNU</a></li>
+        <li class="mb-1"><a class="link-secondary text-decoration-none" href="https://www.tahrd.ntnu.edu.tw/index.php/en/index_en/" target="_blank">NTNU TAHRD</a></li>
+        <!-- <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">LinkedIn</a></li> -->
+        <li class="mb-1"><a class="link-secondary text-decoration-none" href="index.html">Other</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Project</h5>
+      <ul class="list-unstyled text-small">
+        <li class="mb-1"><a class="link-secondary text-decoration-none" href="project.html#HTMatplotLib">HTMatplotLib</a></li>
+        <li class="mb-1"><a class="link-secondary text-decoration-none" href="project.html#SUPERHEALTH">SUPERHEALTH</a></li>
+        <li class="mb-1"><a class="link-secondary text-decoration-none" href="project.html#X'mas">Technological X'mas Tree</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Experience</h5>
+      <ul class="list-unstyled text-small">
+        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#Robotic">Teaching Programming in Japan</a></li>
+        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#Chiba">Academic Exchange in Japan</a></li>
+        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#camp">Teaching Programming in Camp</a></li>
+      </ul>
+    </div>
+
+  </div>
+</footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+    </body>
+</html>
